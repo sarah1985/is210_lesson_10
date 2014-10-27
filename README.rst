@@ -117,7 +117,7 @@ Task 08: Add the Open Method
 At this point you have created a standard class that can set,
 get and delete objects while the program is running. Now you will make the
 data persist by pickling it and saving it to a file. This way the data can be
- accessed the next time the program runs.
+accessed the next time the program runs.
 
 You care going to need to use the ``os.path.exists()`` and ``os.path.getsize()``
 methods as part of your conditional logic.
