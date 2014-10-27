@@ -43,22 +43,22 @@ covered how to create your own custom classes.
 Specifications
 ^^^^^^^^^^^^^^
 
-#.  Create a file named ``picklecache.py``. In ``picklecache.py``:
+#.  Create a file named ``picklecache.py``. In ``picklecache.py``.
 
 #.  Import the ``os`` and ``pickle`` modules.
 
 #.  Initialize the class with a constructor function that accepts a
-``file_path`` string variable with a default value of ``datastore.pkl``. The
-constructor must also define the following attributes:
+    ``file_path`` string variable with a default value of ``datastore.pkl``.
+    The constructor must also define the following attributes.
 
-    #. Pseudo-private *class attribute* named ``__file_path``. It must
-    assigned the constructor variable ``file_path`` value.
-
-    #. Pseudo-private *class attribute* named ``__file_object`` instantiated
-    with ``None``.
-
-    #. Pseudo-private *class attribute* named ``__data`` instantiated as an
-    empty dictionary object.
+    #.  Pseudo-private *class attribute* named ``__file_path``. It must
+        assigned the constructor variable ``file_path`` value.
+    
+    #.  Pseudo-private *class attribute* named ``__file_object`` instantiated
+        with ``None``.
+    
+    #.  Pseudo-private *class attribute* named ``__data`` instantiated as an
+        empty dictionary object.
 
 Task 05: Add a Set Method
 -------------------------
@@ -71,8 +71,8 @@ Specifications
 ^^^^^^^^^^^^^^
 
 #.  Create a bound public function named ``set()`` that accepts two
-arguments: ``key`` and ``value``. It will then save the key pair in the
-``self.__data`` dictionary.
+    arguments: ``key`` and ``value``. It will then save the key pair in the
+    ``self.__data`` dictionary.
 
 Task 06: Add a Get Method
 -------------------------
@@ -83,14 +83,14 @@ Specifications
 ^^^^^^^^^^^^^^
 
 #.  Create a bound public method named ``get()`` that accepts one argument
-named ``key``. It must use this key to return the requested value from the
-``self.__data`` dictionary.
+    named ``key``. It must use this key to return the requested value from the
+    ``self.__data`` dictionary.
 
 #.  Make sure that your use a conditional that check for the existence of
-the key before attempting to return the value.
+    the key before attempting to return the value.
 
 #.  Print a formatted error statement of ``Error: No value found for key:
-'{}'`` if the key does not exist.
+    '{}'`` if the key does not exist.
 
 Task 07: Add a Delete Method
 ----------------------------
@@ -102,12 +102,12 @@ Specifications
 ^^^^^^^^^^^^^^
 
 #.  Create a bound public method named ``delete()`` that accepts one argument
- named ``key``.
+    named ``key``.
 
 #.  Again you will need to make sure the the provided key exists in the
-``self.__data`` dictionary object before attempting to delete it. You can use
- the same conditional as you did in *Task 06* or  use *Task 06* as
- part of your conditional check. Either way is fine.
+    ``self.__data`` dictionary object before attempting to delete it. You
+    can use the same conditional as you did in *Task 06* or  use *Task 06* as
+    part of your conditional check. Either way is fine.
 
 #.  Use the ``del`` statement to remove the key pair from ``self.__data``.
 
@@ -119,26 +119,26 @@ get and delete objects while the program is running. Now you will make the
 data persist by pickling it and saving it to a file. This way the data can be
  accessed the next time the program runs.
 
-You care going to need to use the ``os.path.exists()`` and ``os.path.getsize
-()`` methods as part of your conditional logic.
+You care going to need to use the ``os.path.exists()`` and ``os.path.getsize()``
+methods as part of your conditional logic.
 
 Specifications
 ^^^^^^^^^^^^^^
 
 #.  Create a public bound method named ``open()``. It will not access any
-arguments.
+    arguments.
 
 #.  Open the ``self.__file_path`` for reading only if it exists and has a
-file size greater than zero.
+    file size greater than zero.
 
     #.  Use conditional flow control to check if the ``self.__file_path``
-    exists using ``os.path.exists(self.__file_path)``.
+        exists using ``os.path.exists(self.__file_path)``.
 
     #.  Check if the file size is greater than zero using ``os.path.getsize
-    (self.__file_path)``.
+        (self.__file_path)``.
 
     #.  Use the pickle load function to assign the file contents to the
-    ``self.__data`` attribute
+        ``self.__data`` attribute
 
     #.  Close the file object.
 
@@ -157,15 +157,15 @@ Specifications
 ^^^^^^^^^^^^^^
 
 #.  Create a bound public function named ``flush`` that has one boolean
-argument named ``reopen`` set to a default of ``True``.
+    argument named ``reopen`` set to a default of ``True``.
 
 #.  Use the pickle dump methods to save the object's data attribute to the
-object's file object.
+    object's file object.
 
 #.  Close the file object after the pickle dump.
 
 #.  If the ``reopen`` argument is ``True``, call the ``open()`` method you
-created in the previous task.
+    created in the previous task.
 
 
 Task 09: Create a Flush Method
@@ -178,7 +178,7 @@ Specifications
 ^^^^^^^^^^^^^^
 
 #.  Create a bound public method named ``close()`` that does not accept any
-arguments.
+    arguments.
 
 #.  It should call the ``flush()`` method with ``reopen=False``.
 
