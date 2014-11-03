@@ -43,11 +43,11 @@ class PickleCache(object):
         """public open method"""
 
         if os.path.exists(self.__file_path):
-            if os.path.getsize (self.__file_path) > 0:
-                temp = open(self.__file_path, 'r')
-                self.__data = pickle.load(temp)
-                temp.close()
-                open(self.__data, 'w')
+            if os.path.getsize(self.__file_path) > 0:
+                self.__file_object = open(self.__file_path, 'rb')
+                self.__data = pickle.load(self.__file_object)
+                self.__file_object.close()
+        open(self.__data, 'wb')
 
     def flush(self, reopen=True):
         """pickle dump"""
