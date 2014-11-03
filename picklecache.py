@@ -47,7 +47,7 @@ class PickleCache(object):
                 self.__file_object = open(self.__file_path, 'rb')
                 self.__data = pickle.load(self.__file_object)
                 self.__file_object.close()
-        open(self.__data, 'wb')
+        self.__file_object = open(self.__file_path, 'wb')
 
     def flush(self, reopen=True):
         """pickle dump"""
