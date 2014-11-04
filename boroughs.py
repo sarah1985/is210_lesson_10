@@ -31,7 +31,7 @@ def get_score_summary(boro_file):
             if grade != '' or 'P':
                 boro_dict[camis] = (boro, grade)
 
-    input_file.close()
+    #input_file.close()
 
     boro_score = {}
     manhattan_count = 0
@@ -45,7 +45,7 @@ def get_score_summary(boro_file):
     staten_island_count = 0
     staten_island_avg = 0
 
-    for key, value in boro_dict.iteritems():
+    for value in boro_dict.iteritems():
         if 'MANHATTAN' in value:
             manhattan_count += 1
             manhattan_score = GRADES[value[1]]
@@ -76,13 +76,13 @@ def get_score_summary(boro_file):
             boro_score['QUEENS'] = (queens_count, queens_avg/queens_count)
 
     return boro_score
-    
+
 
 def get_market_density(filename):
     """market density"""
 
 
 
-# if __name__ == "__main__":
-#     TEST = get_score_summary("inspection_results.csv")
-#     print TEST
+if __name__ == "__main__":
+    TEST = get_score_summary("inspection_results.csv")
+    print TEST
