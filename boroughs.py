@@ -48,21 +48,35 @@ def get_score_summary(boro_file):
     for key, value in boro_dict.iteritems():
         if 'MANHATTAN' in value:
             manhattan_count += 1
-            manhattan_score = GRADES[vslue]
+            manhattan_score = GRADES[value[1]]
             manhattan_avg += manhattan_score
-        if value = 'BROOKLYN':
+            boro_score['MANHATTAN'] = \
+                (manhattan_count, manhattan_avg/manhattan_count)
+        if 'BROOKLYN' in value:
             brooklyn_count += 1
-            brooklyn_avg += grade
-        if value = 'BRONX':
+            brooklyn_score = GRADES[value[1]]
+            brooklyn_avg += brooklyn_score
+            boro_score['BROOKLYN'] = \
+                (brooklyn_count, brooklyn_avg/brooklyn_count)
+        if 'BRONX' in value:
             bronx_count += 1
-            bronx_avg += grade
-        if value = 'STATEN ISLAND':
+            bronx_score = GRADES[value[1]]
+            bronx_avg += bronx_score
+            boro_score['BRONX'] = (bronx_count, bronx_avg/bronx_count)
+        if 'STATEN ISLAND' in value:
             staten_island_count += 1
-            staten_island_avg += grade
-        if value = 'QUEENS':
+            staten_island_score = GRADES[value[1]]
+            staten_island_avg += staten_island_score
+            boro_score['STATEN ISLAND'] = \
+                (staten_island_count, staten_island_avg/staten_island_count)
+        if 'QUEENS' in value:
             queens_count += 1
-            queens_avg += grade
+            queens_score = GRADES[value[1]]
+            queens_avg += queens_score
+            boro_score['QUEENS'] = (queens_count, queens_avg/queens_count)
 
+    return boro_score
+    
 
 def get_market_density(filename):
     """market density"""
