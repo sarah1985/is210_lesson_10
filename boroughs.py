@@ -34,32 +34,33 @@ def get_score_summary(boro_file):
     input_file.close()
 
     boro_score = {}
-    manhattan_sum = 0
+    manhattan_count = 0
     manhattan_avg = 0
-    brooklyn_sum = 0
+    brooklyn_count = 0
     brooklyn_avg = 0
-    bronx_sum = 0
+    bronx_count = 0
     bronx_avg = 0
-    queens_sum = 0
+    queens_count = 0
     queens_avg = 0
-    staten_island_sum = 0
+    staten_island_count = 0
     staten_island_avg = 0
 
     for key, value in boro_dict.iteritems():
-        if value = 'MANHATTAN':
-            manhattan_sum += 1
-            manhattan_avg += grade
+        if 'MANHATTAN' in value:
+            manhattan_count += 1
+            manhattan_score = GRADES[vslue]
+            manhattan_avg += manhattan_score
         if value = 'BROOKLYN':
-            brooklyn_sum += 1
+            brooklyn_count += 1
             brooklyn_avg += grade
         if value = 'BRONX':
-            bronx_sum += 1
+            bronx_count += 1
             bronx_avg += grade
         if value = 'STATEN ISLAND':
-            staten_island_sum += 1
+            staten_island_count += 1
             staten_island_avg += grade
         if value = 'QUEENS':
-            queens_sum += 1
+            queens_count += 1
             queens_avg += grade
 
 
