@@ -126,9 +126,9 @@ def correlate_data(rest_file, filename, file_output):
 
     boro_dict = {
         'MANHATTAN': (rest_scores['Manhattan'][1], man_compare),
-        'BROOKLYN': (rest_scores['Brooklyn'][1]), brook_compare),
-        'BRONX': (rest_scores['Bronx'][1]), bronx_compare),
-        'QUEENS': (rest_scores['Queens'][1]), queens_compare),
+        'BROOKLYN': (rest_scores['Brooklyn'][1], brook_compare),
+        'BRONX': (rest_scores['Bronx'][1], bronx_compare),
+        'QUEENS': (rest_scores['Queens'][1], queens_compare),
         'STATEN ISLAND': (rest_scores['Staten Island'[1]], si_compare)
     }
 
