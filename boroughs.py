@@ -28,7 +28,7 @@ def get_score_summary(boro_file):
         boro = line[1]
         grade = line[10]
         if camis not in boro_dict:
-            if grade is None:
+            if grade is None or grade == '':
                 pass
             elif grade == 'P':
                 pass
@@ -118,11 +118,12 @@ def correlate_data(rest_file, filename, file_output):
 
     rest_scores = get_score_summary(rest_file)
     green_density = get_market_density(filename)
-    man_compare = float(green_density['MANHATTAN'])/rest_scores['Manhattan']
-    brook_compare = float(green_density['BROOKLYN'])/rest_scores['Brooklyn']
-    bronx_compare = float(green_density['BRONX'])/rest_scores['Bronx']
-    queens_compare = float(green_density['QUEENS'])/rest_scores['Queens']
-    si_compare = float(green_density['STATEN ISLAND'])/rest_scores['Staten Island']
+    man_compare = float(green_density['MANHATTAN'])/rest_scores['Manhattan'][1]
+    brook_compare = float(green_density['BROOKLYN'])/rest_scores['Brooklyn'][1]
+    bronx_compare = float(green_density['BRONX'])/rest_scores['Bronx'][1]
+    queens_compare = float(green_density['QUEENS'])/rest_scores['Queens'][1]
+    si_compare = float(green_density['STATEN ISLAND'])\
+                 /rest_scores['Staten Island'][1]
 
     boro_dict = {
         'MANHATTAN': (rest_scores['Manhattan'][1], man_compare),
@@ -138,6 +139,7 @@ def correlate_data(rest_file, filename, file_output):
 
     return boro_dict
 
-# if __name__ == "__main__":
-#     TEST = get_score_summary("inspection_results.csv")
-#     print TEST
+if __name__ == "__main__":
+    TEST = get_score_summary("inspection_results.csv")
+    from pprint import pprint
+    pprint(TEST)
