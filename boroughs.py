@@ -96,7 +96,7 @@ def get_market_density(filename):
             manhattan_count += 1
         elif line[8] == 'Brooklyn':
             brooklyn_count += 1
-        elif line[8] == 'Bronx':
+        elif line[8] == 'Bronx' or line[8] == 'Bronx ':
             bronx_count += 1
         elif line[8] == 'Queens':
             queens_count += 1
@@ -118,19 +118,19 @@ def correlate_data(rest_file, filename, file_output):
 
     rest_scores = get_score_summary(rest_file)
     green_density = get_market_density(filename)
-    man_compare = float(green_density['MANHATTAN'])/rest_scores['Manhattan'][1]
-    brook_compare = float(green_density['BROOKLYN'])/rest_scores['Brooklyn'][1]
-    bronx_compare = float(green_density['BRONX'])/rest_scores['Bronx'][1]
-    queens_compare = float(green_density['QUEENS'])/rest_scores['Queens'][1]
-    si_compare = float(green_density['STATEN ISLAND'])\
-                 /rest_scores['Staten Island'][1]
+    man_compare = float(green_density['MANHATTAN'])/rest_scores['MANHATTAN'][1]
+    brook_compare = float(green_density['BROOKLYN'])/rest_scores['BROOKLYN'][1]
+    bronx_compare = float(green_density['BRONX'])/rest_scores['BRONX'][1]
+    queens_compare = float(green_density['QUEENS'])/rest_scores['QUEENS'][1]
+    si_compare = float(
+        green_density['STATEN ISLAND'])/rest_scores['STATEN ISLAND'][1]
 
     boro_dict = {
-        'MANHATTAN': (rest_scores['Manhattan'][1], man_compare),
-        'BROOKLYN': (rest_scores['Brooklyn'][1], brook_compare),
-        'BRONX': (rest_scores['Bronx'][1], bronx_compare),
-        'QUEENS': (rest_scores['Queens'][1], queens_compare),
-        'STATEN ISLAND': (rest_scores['Staten Island'[1]], si_compare)
+        'MANHATTAN': (rest_scores['MANHATTAN'][1], man_compare),
+        'BROOKLYN': (rest_scores['BROOKLYN'][1], brook_compare),
+        'BRONX': (rest_scores['BRONX'][1], bronx_compare),
+        'QUEENS': (rest_scores['QUEENS'][1], queens_compare),
+        'STATEN ISLAND': (rest_scores['STATEN ISLAND'][1], si_compare)
     }
 
     out_file = open(file_output, 'w')
@@ -143,3 +143,7 @@ if __name__ == "__main__":
     TEST = get_score_summary("inspection_results.csv")
     from pprint import pprint
     pprint(TEST)
+
+    pprint(get_market_density('green_markets.json'))
+
+    pprint(correlate_data("inspection_results.csv", 'green_markets.json', "file_output"))
