@@ -118,12 +118,12 @@ def correlate_data(rest_file, filename, file_output):
 
     rest_scores = get_score_summary(rest_file)
     green_density = get_market_density(filename)
-    man_compare = float(green_density['MANHATTAN'])/rest_scores['MANHATTAN'][1]
-    brook_compare = float(green_density['BROOKLYN'])/rest_scores['BROOKLYN'][1]
-    bronx_compare = float(green_density['BRONX'])/rest_scores['BRONX'][1]
-    queens_compare = float(green_density['QUEENS'])/rest_scores['QUEENS'][1]
+    man_compare = float(green_density['MANHATTAN'])/rest_scores['MANHATTAN'][0]
+    brook_compare = float(green_density['BROOKLYN'])/rest_scores['BROOKLYN'][0]
+    bronx_compare = float(green_density['BRONX'])/rest_scores['BRONX'][0]
+    queens_compare = float(green_density['QUEENS'])/rest_scores['QUEENS'][0]
     si_compare = float(
-        green_density['STATEN ISLAND'])/rest_scores['STATEN ISLAND'][1]
+        green_density['STATEN ISLAND'])/rest_scores['STATEN ISLAND'][0]
 
     boro_dict = {
         'MANHATTAN': (rest_scores['MANHATTAN'][1], man_compare),
